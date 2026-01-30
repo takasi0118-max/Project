@@ -44,7 +44,7 @@ export default function LoginPage() {
           onClick={handleLogin}
           className="w-full bg-blue-500 text-white p-2 rounded"
         >
-          ログイン
+          ログイン!
         </button>
       </div>
     </div>

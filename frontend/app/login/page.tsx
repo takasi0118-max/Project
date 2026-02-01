@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { LoginTitle } from "@/components/login"; 
+import Input from "@/components/Input";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -23,22 +23,21 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
       <div className="w-full max-w-sm bg-white p-6 rounded shadow">
-        <LoginTitle>ログイン!</LoginTitle>
+        <h1 className="text-[25px] leading-[1.5] font-bold mb-5">ログイン!</h1>
 
-        <input
+
+        <Input
           type="email"
           placeholder="メールアドレス"
-          className="w-full p-2 border rounded mb-3"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={setEmail}
         />
 
-        <input
+        <Input
           type="password"
           placeholder="パスワード"
-          className="w-full p-2 border rounded mb-4"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={setPassword}
         />
 
         <button

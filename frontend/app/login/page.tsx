@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { LoginTitle } from "@/components/login"; 
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -22,7 +23,7 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
       <div className="w-full max-w-sm bg-white p-6 rounded shadow">
-        <h1 className="text-2xl font-bold mb-4">ログイン!</h1>
+        <LoginTitle>ログイン!</LoginTitle>
 
         <input
           type="email"
@@ -44,7 +45,7 @@ export default function LoginPage() {
           onClick={handleLogin}
           className="w-full bg-blue-500 text-white p-2 rounded"
         >
-          ログイン
+          ログイン!
         </button>
       </div>
     </div>

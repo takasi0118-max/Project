@@ -1,25 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import Input from "@/components/Input";
+import { useSign } from "../hooks/useSign";
 
-export default function LoginPage() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleLogin = async () => {
-    const res = await fetch("http://localhost:8080/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
-
-    const result = await res.json();
-    alert(result.message);
-  };
+export default function SignPage() {
+  const { name, email, password, setName, setEmail, setPassword, handleSign } = useSign();
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
@@ -48,7 +33,7 @@ export default function LoginPage() {
         />
 
         <button
-          onClick={handleLogin}
+          onClick={handleSign}
           className="w-full bg-blue-500 text-white p-2 rounded"
         >
           新規登録

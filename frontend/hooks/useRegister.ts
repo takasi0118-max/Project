@@ -1,8 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export const useSign = () => {
+export const useRegister = () => {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,8 +18,14 @@ export const useSign = () => {
       body: JSON.stringify({ name, email, password }),
     });
 
-    const result = await res.json();
-    alert(result.message ?? "登録成功");
+    const message = await res.text();
+    
+    if (res.ok) {
+      alert(message);
+      router.push("/member");
+    } else {
+      alert(message);
+    }
   };
 
 

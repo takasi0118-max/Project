@@ -15,12 +15,13 @@ export const useLogin = () => {
       body: JSON.stringify({ email, password }),
     });
 
-    const result = await res.json();
-    if (result.message === "ログイン成功！") {
-        alert("ログイン成功！")
-        router.push("/member");
+    const message = await res.text();
+
+    if (res.ok) {
+      alert(message);
+      router.push("/member");
     } else {
-        alert("メールアドレスまたはパスワードが違います");
+      alert(message);
     }
   };
 

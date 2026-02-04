@@ -1,7 +1,7 @@
 "use client";
 
 import Input from "@/components/Input";
-import { useLogin } from "./hooks/useLogin";
+import { useLogin } from "@/hooks/useLogin";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
@@ -41,7 +41,7 @@ export default function LoginPage() {
         </div>
 
         <button
-          onClick={() => router.push("/login/sign")}
+          onClick={() => router.push("./register")}
           className="w-full bg-blue-500 text-white p-2 rounded"
         >
           新規登録

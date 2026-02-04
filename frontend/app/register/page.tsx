@@ -1,10 +1,10 @@
 "use client";
 
 import Input from "@/components/Input";
-import { useSign } from "../hooks/useSign";
+import { useRegister } from "@/hooks/useRegister";
 
 export default function SignPage() {
-  const { name, email, password, setName, setEmail, setPassword, handleSign } = useSign();
+  const { name, email, password, setName, setEmail, setPassword, handleSign } = useRegister();
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">

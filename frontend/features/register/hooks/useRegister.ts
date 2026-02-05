@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { registerApi } from "@/lib/api/auth";
 
 export const useRegister = () => {
   const router = useRouter();
@@ -10,24 +11,14 @@ export const useRegister = () => {
   const [password, setPassword] = useState("");
 
   const handleSign = async () => {
-    const res = await fetch("http://localhost:8081/api/members/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, password }),
-    });
-
-    const message = await res.text();
-    
-    if (res.ok) {
+    try {
+      const message = await registerApi(name, email, password);
       alert(message);
       router.push("/member");
-    } else {
-      alert(message);
+    } catch (err: any) {
+      alert(err.message);
     }
   };
-
 
   return {
     name,

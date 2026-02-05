@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { loginApi } from "@/lib/api/auth";
 
 export const useLogin = () => {
   const router = useRouter();
@@ -9,19 +10,12 @@ export const useLogin = () => {
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-    const res = await fetch("http://localhost:8081/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-
-    const message = await res.text();
-
-    if (res.ok) {
+    try {
+      const message = await loginApi(email, password);
       alert(message);
       router.push("/member");
-    } else {
-      alert(message);
+    } catch (err: any) {
+      alert(err.message);
     }
   };
 

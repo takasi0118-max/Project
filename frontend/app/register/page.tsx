@@ -1,7 +1,7 @@
 "use client";
 
-import Input from "@/components/Input";
-import { useRegister } from "@/hooks/useRegister";
+import Input from "@/components/ui/Input";
+import { useRegister } from "@/features/register/hooks/useRegister";
 
 export default function SignPage() {
   const { name, email, password, setName, setEmail, setPassword, handleSign } = useRegister();

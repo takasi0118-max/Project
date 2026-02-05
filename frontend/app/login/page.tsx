@@ -1,7 +1,7 @@
 "use client";
 
-import Input from "@/components/Input";
-import { useLogin } from "@/hooks/useLogin";
+import Input from "@/components/ui/Input";
+import { useLogin } from "@/features/login/hooks/useLogin";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {

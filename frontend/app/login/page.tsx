@@ -35,7 +35,7 @@ export default function LoginPage() {
         </button>
 
         <div
-          className={"text-sm mb-3"}
+          className="text-sm mb-3"
         >
           会員登録がまだの方はこちら
         </div>

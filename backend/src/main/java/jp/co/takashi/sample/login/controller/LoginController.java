@@ -6,6 +6,9 @@ import jp.co.takashi.sample.login.service.LoginService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api")
 public class LoginController {
@@ -25,6 +28,10 @@ public class LoginController {
             return ResponseEntity.status(401).body(result.getMessage());
         }
 
-        return ResponseEntity.ok(result.getMessage());
+        Map<String, Object> response = new HashMap<>();
+        response.put("token", result.getToken());
+        response.put("name", result.getName());
+
+        return ResponseEntity.ok(response);
     }
 }

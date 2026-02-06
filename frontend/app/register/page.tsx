@@ -4,12 +4,12 @@ import Input from "@/components/ui/Input";
 import { useRegister } from "@/features/register/hooks/useRegister";
 import { useRouter } from "next/navigation";
 
-export default function SignPage() {
+export default function RegisterPage() {
   const router = useRouter();
-  const { name, email, password, setName, setEmail, setPassword, handleSign } = useRegister();
+  const { name, email, password, setName, setEmail, setPassword, handleRegister } = useRegister();
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
+    <div className="flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-sm bg-white p-6 rounded shadow">
         <h1 className="text-2xl font-bold mb-5">新規登録</h1>
 
@@ -35,7 +35,7 @@ export default function SignPage() {
         />
 
         <button
-          onClick={handleSign}
+          onClick={handleRegister}
           className="w-full bg-blue-500 text-white p-2 rounded mb-3"
         >
           新規登録

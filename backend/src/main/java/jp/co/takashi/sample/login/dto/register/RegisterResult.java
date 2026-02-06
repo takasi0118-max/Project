@@ -1,13 +1,13 @@
-package jp.co.takashi.sample.login.dto.login;
+package jp.co.takashi.sample.login.dto.register;
 
-public class LoginResult {
+public class RegisterResult {
 
     private final boolean success;
     private final String message;
     private final String token;
     private final String name;
 
-    public LoginResult(boolean success, String message, String token, String name) {
+    public RegisterResult(boolean success, String message, String token, String name) {
         this.success = success;
         this.message = message;
         this.token = token;

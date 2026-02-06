@@ -9,7 +9,7 @@ export default function LoginPage() {
   const { email, password, setEmail, setPassword, handleLogin } = useLogin();
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
+    <div className="flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-sm bg-white p-6 rounded shadow">
         <h1 className="text-2xl font-bold mb-5">ログイン!</h1>
 

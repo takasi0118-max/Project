@@ -13,5 +13,9 @@ export const apiClient = async (url: string, options: RequestInit = {}) => {
     throw new Error(text);
   }
 
-  return text;
+  try {
+    return JSON.parse(text);
+  } catch {
+    return text;
+  }
 };

@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { registerApi } from "@/lib/api/auth";
+import { saveUser } from "@/lib/auth";
 
 export const useRegister = () => {
   const router = useRouter();
@@ -10,10 +11,11 @@ export const useRegister = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSign = async () => {
+  const handleRegister = async () => {
     try {
-      const message = await registerApi(name, email, password);
-      alert(message);
+      const data = await registerApi(name, email, password);
+
+      saveUser(data.token, data.name);
       router.push("/member");
     } catch (err: any) {
       alert(err.message);
@@ -27,6 +29,6 @@ export const useRegister = () => {
     setName,
     setEmail,
     setPassword,
-    handleSign,
+    handleRegister,
   };
 };

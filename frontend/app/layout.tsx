@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja">
       <body className={`${inter.className} bg-[var(--background)] min-h-screen`}>
-        <div className="flex items-center justify-center max-w-[1420px] mx-auto h-screen bg-blue-100">
+        <div className="max-w-[1420px] mx-auto h-screen bg-blue-100">
           {children}
         </div>
       </body>

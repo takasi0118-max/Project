@@ -9,8 +9,8 @@ export default function LoginPage() {
   const { email, password, setEmail, setPassword, handleLogin } = useLogin();
 
   return (
-    <div className="flex items-center justify-center bg-gray-100">
-      <div className="w-full max-w-sm bg-white p-6 rounded shadow">
+    <div className="flex items-center justify-center  min-h-screen">
+      <div className="max-w-sm bg-white p-6 rounded shadow">
         <h1 className="text-2xl font-bold mb-5">ログイン!</h1>
 
         <Input

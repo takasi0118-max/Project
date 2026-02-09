@@ -29,9 +29,9 @@ public class RegisterService {
         member.setEmail(req.getEmail());
         member.setPassword(passwordEncoder.encode(req.getPassword()));
 
+        member.setRole("USER");
         memberRepository.save(member);
 
-        // 本来は JWT を生成する
         String token = "dummy-token";
 
         return new RegisterResult(true, "登録成功", token, member.getName());

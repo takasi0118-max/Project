@@ -24,16 +24,16 @@ public class LoginService {
                 .orElse(null);
 
         if (member == null) {
-            return new LoginResult(false, "メールアドレスが存在しません", null, null);
+            return new LoginResult(false, "メールアドレスが存在しません", null, null, null);
         }
 
         if (!passwordEncoder.matches(req.getPassword(), member.getPassword())) {
-            return new LoginResult(false, "パスワードが違います", null, null);
+            return new LoginResult(false, "パスワードが違います", null, null, null);
         }
 
         // 本来は JWT を生成するが、まずはダミー token を返す
         String token = "dummy-token";
 
-        return new LoginResult(true, "ログイン成功", token, member.getName());
+        return new LoginResult(true, "ログイン成功", token, member.getName(), member.getRole());
     }
 }

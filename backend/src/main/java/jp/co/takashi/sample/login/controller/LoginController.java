@@ -31,6 +31,7 @@ public class LoginController {
         Map<String, Object> response = new HashMap<>();
         response.put("token", result.getToken());
         response.put("name", result.getName());
+        response.put("role", result.getRole());
 
         return ResponseEntity.ok(response);
     }

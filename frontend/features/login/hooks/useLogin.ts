@@ -14,7 +14,7 @@ export const useLogin = () => {
     try {
       const data= await loginApi(email, password);
 
-      saveUser(data.token, data.name);
+      saveUser(data.token, data.name, data.role);
       router.push("/member");
     } catch (err: any) {
       alert(err.message);

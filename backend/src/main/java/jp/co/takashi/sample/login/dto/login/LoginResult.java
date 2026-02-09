@@ -6,12 +6,14 @@ public class LoginResult {
     private final String message;
     private final String token;
     private final String name;
+    private final String role;
 
-    public LoginResult(boolean success, String message, String token, String name) {
+    public LoginResult(boolean success, String message, String token, String name, String role) {
         this.success = success;
         this.message = message;
         this.token = token;
         this.name = name;
+        this.role = role;
     }
 
     public boolean isSuccess() {
@@ -28,5 +30,9 @@ public class LoginResult {
 
     public String getName() {
         return name;
+    }
+
+    public String getRole() {
+        return role;
     }
 }

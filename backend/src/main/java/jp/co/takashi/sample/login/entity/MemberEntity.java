@@ -24,4 +24,7 @@ public class MemberEntity {
 
     @Column(nullable = false, length = 255)
     private String password;
+
+    @Column(nullable = false, length = 20)
+    private String role;
 }

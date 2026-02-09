@@ -15,7 +15,7 @@ export const useRegister = () => {
     try {
       const data = await registerApi(name, email, password);
 
-      saveUser(data.token, data.name);
+      saveUser(data.token, data.name, data.role);
       router.push("/member");
     } catch (err: any) {
       alert(err.message);

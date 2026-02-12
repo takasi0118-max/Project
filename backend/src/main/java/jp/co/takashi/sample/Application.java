@@ -1,4 +1,4 @@
-package jp.co.takashi.sample.login;
+package jp.co.takashi.sample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

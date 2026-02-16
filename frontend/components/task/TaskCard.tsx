@@ -15,6 +15,7 @@ export default function TaskCard({
     status: string;
     priority: string;
     dueDate: string;
+    assignedTo: string;
   };
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
@@ -34,6 +35,9 @@ export default function TaskCard({
         </span>
         <span className="px-2 py-1 bg-gray-100 rounded">
           期限: {task.dueDate}
+        </span>
+        <span className="px-2 py-1 bg-gray-100 rounded">
+          担当者: {task.assignedTo}
         </span>
       </div>
 

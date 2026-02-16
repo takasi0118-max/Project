@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import TaskCard from "@/components/task/TaskCard";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 
 export default function MemberPage() {
+  const router = useRouter();
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -13,6 +15,7 @@ export default function MemberPage() {
       status: "DOING",
       priority: "HIGH",
       dueDate: "2024-02-10",
+      assignedTo: "田中"
     },
     {
       id: 2,
@@ -21,11 +24,12 @@ export default function MemberPage() {
       status: "TODO",
       priority: "MEDIUM",
       dueDate: "2024-02-12",
+      assignedTo: "森本"
     },
   ]);
 
   const handleEdit = (id: number) => {
-    console.log("編集:", id);
+    router.push("/member/edit/")
   };
 
   const handleDelete = (id: number) => {
@@ -33,8 +37,7 @@ export default function MemberPage() {
   };
 
   const handleCreate = () => {
-    console.log("新規タスク作成へ移動");
-    // 例: router.push("/member/task/new")
+    router.push("/member/new/")
   };
 
   return (

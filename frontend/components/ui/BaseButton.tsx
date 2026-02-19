@@ -20,8 +20,8 @@ export default function BaseButton({
       type={type}
       onClick={onClick}
       className={`
-        px-12
-        py-8
+        px-10
+        py-7
         rounded
         font-medium
         transition

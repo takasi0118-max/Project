@@ -1,13 +1,13 @@
 package jp.co.takashi.sample.login.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jp.co.takashi.sample.login.dto.login.LoginRequest;
 import jp.co.takashi.sample.login.dto.login.LoginResult;
 import jp.co.takashi.sample.login.service.LoginService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -20,19 +20,22 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest req) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest req, HttpServletRequest request) {
 
+        // ① LoginService に認証処理を任せる
         LoginResult result = loginService.login(req);
 
         if (!result.isSuccess()) {
             return ResponseEntity.status(401).body(result.getMessage());
         }
 
-        Map<String, Object> response = new HashMap<>();
-        response.put("token", result.getToken());
-        response.put("name", result.getName());
-        response.put("role", result.getRole());
+        // ② ★ セッションを強制生成
+        HttpSession session = request.getSession(true);
 
-        return ResponseEntity.ok(response);
+        // ③ ★ SecurityContext をセッションに保存
+        session.setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext());
+
+        // ④ レスポンス
+        return ResponseEntity.ok(result);
     }
 }

@@ -4,18 +4,32 @@ import { useState } from 'react'
 import { useRouter } from "next/navigation";
 import BackButton from '@/components/ui/BackButton';
 import PrimaryButton from '@/components/ui/PrimaryButton';
+import { createTask } from '@/lib/api/task';
 
 export default function NewPage() {
     const [title,setTitle] = useState("");
     const [description,setDescription] = useState("");
-    const [status,setStatus] = useState("");
-    const [priority,setPriority] = useState("");
+    const [status,setStatus] = useState("TODO");
+    const [priority,setPriority] = useState("MEDIUM");
     const [dueDate,setDueDate] = useState("");
     const [assignedTo,setAssignedTo] = useState("");
     const router = useRouter();
 
     const handleCreate = async () => {
-        console.log("新規作成");
+        try {
+            await createTask({
+                title,
+                description,
+                status,
+                priority,
+                dueDate,
+                assignedTo,
+            });
+
+            router.push("/member");
+        } catch (e) {
+            alert("登録に失敗しました。")
+        }
     }
     const handleBack = async () => {
         router.push("../member/")

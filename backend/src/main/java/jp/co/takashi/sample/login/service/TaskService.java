@@ -1,6 +1,7 @@
 package jp.co.takashi.sample.login.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -33,5 +34,12 @@ public class TaskService {
 
         TaskEntity saved = taskRepository.save(task);
         return new TaskResult(saved);
+    }
+
+    public List<TaskResult> getTasks(String username) {
+        return taskRepository.findAll()
+                .stream()
+                .map(TaskResult::new)
+                .toList();
     }
 }

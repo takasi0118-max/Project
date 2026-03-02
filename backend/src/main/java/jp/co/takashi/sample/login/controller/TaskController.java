@@ -1,11 +1,14 @@
 package jp.co.takashi.sample.login.controller;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.List;
 
 import jp.co.takashi.sample.login.dto.task.TaskRequest;
 import jp.co.takashi.sample.login.dto.task.TaskResult;
@@ -25,4 +28,10 @@ public class TaskController {
 
         return taskService.createTask(request, user.getUsername());
     }
+
+    @GetMapping
+    public List<TaskResult> getTasks(@AuthenticationPrincipal UserDetails user) {
+        return taskService.getTasks(user.getUsername());
+    }
+
 }

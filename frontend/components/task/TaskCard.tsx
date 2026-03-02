@@ -2,21 +2,14 @@
 
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import DangerButton from "@/components/ui/DangerButton";
+import { Task } from "@/lib/types/task";
 
 export default function TaskCard({
   task,
   onEdit,
   onDelete,
 }: {
-  task: {
-    id: number;
-    title: string;
-    description: string;
-    status: string;
-    priority: string;
-    dueDate: string;
-    assignedTo: string;
-  };
+  task: Task;
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
 }) {

@@ -57,9 +57,9 @@ export default function NewPage() {
             value={status}
             onChange={(e) => setStatus(e.target.value)}
          >
-            <option value="TODO">未着手</option>
-            <option value="DOING">実行中</option>
-            <option value="DONE">完了</option>
+            <option value="未着手">未着手</option>
+            <option value="実行中">実行中</option>
+            <option value="完了">完了</option>
         </select>
 
         <select
@@ -67,9 +67,9 @@ export default function NewPage() {
             value={priority}
             onChange={(e) => setPriority(e.target.value)}
          >
-            <option value="MEDIUM">中</option>
-            <option value="LOW">低</option>
-            <option value="HIGH">高</option>
+            <option value="低">低</option>
+            <option value="中">中</option>
+            <option value="高">高</option>
         </select>
 
         <input

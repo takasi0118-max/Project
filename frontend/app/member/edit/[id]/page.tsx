@@ -61,9 +61,9 @@ export default function EditPage() {
         value={task.status}
         onChange={(e) => setTask({ ...task, status: e.target.value })}
       >
-        <option value="TODO">未着手</option>
-        <option value="DOING">実行中</option>
-        <option value="DONE">完了</option>
+        <option value="未着手">未着手</option>
+        <option value="実行中">実行中</option>
+        <option value="完了">完了</option>
       </select>
 
       <select
@@ -71,9 +71,9 @@ export default function EditPage() {
         value={task.priority}
         onChange={(e) => setTask({ ...task, priority: e.target.value })}
       >
-        <option value="LOW">低</option>
-        <option value="MEDIUM">中</option>
-        <option value="HIGH">高</option>
+        <option value="低">低</option>
+        <option value="中">中</option>
+        <option value="高">高</option>
       </select>
 
       <input

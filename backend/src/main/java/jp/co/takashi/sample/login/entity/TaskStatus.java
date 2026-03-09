@@ -1,7 +1,7 @@
 package jp.co.takashi.sample.login.entity;
 
 public enum TaskStatus {
-    TODO,
-    DOING,
-    DONE
+    未着手,
+    実行中,
+    完了
 }

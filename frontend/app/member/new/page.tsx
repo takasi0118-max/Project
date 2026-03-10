@@ -9,13 +9,26 @@ import { createTask } from '@/lib/api/task';
 export default function NewPage() {
     const [title,setTitle] = useState("");
     const [description,setDescription] = useState("");
-    const [status,setStatus] = useState("TODO");
-    const [priority,setPriority] = useState("MEDIUM");
+    const [status,setStatus] = useState("未着手");
+    const [priority,setPriority] = useState("中");
     const [dueDate,setDueDate] = useState("");
     const [assignedTo,setAssignedTo] = useState("");
     const router = useRouter();
 
     const handleCreate = async () => {
+        if (!title.trim()) {
+            alert("タイトルを入力してください")
+            return;
+        } else if (!description.trim()) {
+            alert("詳細を入力してください")
+            return;
+        } else if (!dueDate.trim()) {
+            alert("期限を入力してください")
+            return;
+        } else if (!assignedTo.trim()) {
+            alert("担当者を入力してください")
+            return;
+        }
         try {
             await createTask({
                 title,

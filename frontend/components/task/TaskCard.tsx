@@ -13,8 +13,22 @@ export default function TaskCard({
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
 }) {
+
+  const diffDays = Math.ceil(
+    (new Date(task.dueDate).getTime() - new Date().getTime()) /
+      (1000 * 60 * 60 * 24)
+  );
+
+  let bgColor = "bg-white";
+
+  if (diffDays <= 3) {
+    bgColor = "bg-red-200";
+  } else if (diffDays <= 7) {
+    bgColor = "bg-yellow-200";
+  }
+
   return (
-    <div className="border p-4 rounded shadow-sm bg-white hover:shadow-md transition">
+    <div className={`border p-4 rounded shadow-sm hover:shadow-md transition ${bgColor}`}>
       <div className="text-xl font-bold mb-1">{task.title}</div>
 
       <div className="text-sm text-gray-600 mb-3">{task.description}</div>

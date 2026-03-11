@@ -17,16 +17,16 @@ export default function NewPage() {
 
     const handleCreate = async () => {
         if (!title.trim()) {
-            alert("タイトルを入力してください")
+            alert("タイトルを入力してください。")
             return;
         } else if (!description.trim()) {
-            alert("詳細を入力してください")
+            alert("詳細を入力してください。")
             return;
         } else if (!dueDate.trim()) {
-            alert("期限を入力してください")
+            alert("期限を入力してください。")
             return;
         } else if (!assignedTo.trim()) {
-            alert("担当者を入力してください")
+            alert("担当者を入力してください。")
             return;
         }
         try {

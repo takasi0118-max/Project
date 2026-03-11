@@ -24,16 +24,16 @@ export default function EditPage() {
   // ★ 更新処理
   const handleUpdate = async () => {
     if (!task.title.trim()) {
-        alert("タイトルを入力してください")
+        alert("タイトルを入力してください。")
         return;
     } else if (!task.description.trim()) {
-        alert("詳細を入力してください")
+        alert("詳細を入力してください。")
         return;
     } else if (!task.dueDate.trim()) {
-        alert("期限を入力してください")
+        alert("期限を入力してください。")
         return;
     } else if (!task.assignedTo.trim()) {
-        alert("担当者を入力してください")
+        alert("担当者を入力してください。")
         return;
     }
     const req: TaskCreateRequest = {
